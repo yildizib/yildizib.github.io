@@ -1,0 +1,14 @@
+---
+layout: post
+title: Tomcat için bir yönetim aracı arayışı...
+date: '2010-01-27T23:33:00.000+02:00'
+author: İbrahim YILDIZ
+tags:
+- tomcat yönetim aracı
+- probe
+modified_time: '2010-01-27T23:33:36.446+02:00'
+blogger_id: tag:blogger.com,1999:blog-2574404706234424211.post-5738541147335825559
+blogger_orig_url: http://yildizib.blogspot.com/2010/01/tomcat-icin-bir-yonetim-arac-arays.html
+---
+
+Tomcat'in kendi yönetim aracı pek kullanışlı değil. Bunun yerine daha detaylı bilgi veren ve kullanışlı bir yönetim aracı arayışı içine girdim.<br /><br />Örneğin ne kadar hafıza tükettiği, bir web projesinde kaçtane oturum açıldığı ve bunların içeriklerinin detayı, gerektiğinde jsp sayfalarını tekrar derletebilme gibi bir çok seçenek sunan bir alet buldum adı ise : <a href="http://www.lambdaprobe.org/d/index.htm">probe</a> .<br /><br />Probe aynı zamanda suya sabuna dokunmadan bir projeyi kapatıp açmayı sağlaması ise ayrı güzellikti. Doğal olarak o web projesini - context - yeniden çağırabiliyordunuz. Detaylarına kadar size bilgileri veriyordu.<br /><br />Daha fazla ayrıntılarına giremedim vaktim olmadığından.<br /><br /><b>Tecrübe</b>: Probe ile bir context yeniden çağrıldığında eğer, o web projesinde Quartz API kullanılmış ise bu quartz programcıklarnın - threads - ölmemesi, fakat yeniden çağrılması olayına denk geldim. Böylece aynı iş için iki adet quartz servisi çalışıyor olacaktı. Hele bi de bu servisler para çekiyorsa değmeyin keyfinize .... :)<br /><br /><b>UYARI</b>: Aynı sorun tomcat sunucusunun server.xml ayar dosyasında CONTEXT etiketinin reloadable="true" özelliği ile de yaşandı. Mesela web.xml üzerine yazarsanız yenisini context kendini yeniden çağıracak, eski quartz servisleri kapatılamadan yenileri ayağa kalkacak ve aynı iş için birden fazla servisinin çalışacaktır.

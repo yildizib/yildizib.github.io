@@ -1,0 +1,15 @@
+---
+layout: post
+title: Php ile değişen alt yapılara ayak uyduran üyelik sistemi yazmak
+date: '2009-03-22T22:27:00.004+02:00'
+author: İbrahim YILDIZ
+tags:
+- üyelik sistemi
+- tasarım kalıbı
+- php
+modified_time: '2010-09-15T18:35:56.333+03:00'
+blogger_id: tag:blogger.com,1999:blog-2574404706234424211.post-9113063530952714770
+blogger_orig_url: http://yildizib.blogspot.com/2009/03/php-ile-degisen-alt-yaplara-ayak.html
+---
+
+Php ile değişen alt yapılara ayak uyduracak bir üyelik sistemi yazmak isteyelim mesela.<br />Bunu nasıl yaparız?<br /><br />Örneğin sisteme girişlerin denetlemesini bir veritabanından okuyarak yapıyor olalım. Üyeler kullanıcı adlarını ve şifrelerini yazıp sisteme giriyor olsunlar. Her şey buraya kadar normal.<br /><br />Bir gün patron gelsin ve artık biz o şirketle birleştik ve onların API'lerini kullarak üyelerin girişlerini denetleyeceklerini söyledi. Bu sırada siz kafayı sıyırabilirsiniz gönül rahatlığıyla...<br /><br />Peki böyle değişken durumlara ayak uyduracak bir sistem yazabilsek ve üye girişlerinin genel yapısı değişmesede, ufacık bir değişiklikle tüm sistem alt yapısı bir anda değişse...<br /><br />İşte burada sizin üyelik sistemini nasıl tasarladığınıza göre işiniz ya zor ya da kolay olacaktır.<br /><br /><pre  name="code" class="Php">$giris = new UyelikGiris(new BenimGirisAdaptorum("assd", "123"));<br /><br />if($giris-&gt;girisOnaylandiMi()){<br />echo "Onaylandı\n";<br />}<br /></pre><br /><br />Yukarıdaki kodda üyelik sistemi genel yapısı hiç değişmeden sadece Adaptör nesneyi değiştirerek bu işlemi gerçekleyebiliriz. Tüm denetleme yapıları aynı kalır. Sadece <span style="font-style: italic;">"BenimGirisAdaptorum"</span> sınıfı yerine aynı <span style="font-style: italic;">interface</span>'dan türemiş başka bir adaptör nesnesi kullanmamız yeterli olacaktır. Bu sayede üyelik mekanizması şeklen aynı kalacak ancak kullandığı alt yapı esasen değişmiş olacaktır.<br /><br />Örnek kodlar aşağıda indirilebilir.<br /><br />Örnek kod:<a href="http://sites.google.com/site/yildizib/dosyalar/Php_ile_degisen_alt_yapilara_ayak_uyduran_uyelik_sistemi_yazmak.zip?attredirects=0"> </a><a href="http://sites.google.com/site/yildizib/dosyalar/Php_ile_degisen_alt_yapilara_ayak_uyduran_uyelik_sistemi_yazmak.zip?attredirects=0">örnek dosya</a><br /><br />Örnek kodu incelerseniz herşey kafanızda daha da netleşecektir.

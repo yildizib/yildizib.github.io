@@ -1,0 +1,15 @@
+---
+layout: post
+title: Güvenlik için onay resimleri ve MS Core Fonts
+date: '2010-01-27T23:21:00.001+02:00'
+author: İbrahim YILDIZ
+tags:
+- güvenlik resmi
+- ms core fonts
+- captcha
+modified_time: '2010-01-27T23:22:47.024+02:00'
+blogger_id: tag:blogger.com,1999:blog-2574404706234424211.post-1070109869160773091
+blogger_orig_url: http://yildizib.blogspot.com/2010/01/guvenlik-icin-onay-resimleri-ve-ms-core.html
+---
+
+Bir çok projede hava oluşturulan resim ile bu resim içerindeki metnin onayını isteyerek bir tür güvenlik sistemi kurdum.<br /><br />Bu resim servleti png biçeminde - fotmatında - rastgele oluşturulan metni resim olarak ekrana basacak şekilde ayarlandı. Tabii metnin bir kopyası ise oturum nesnesinde - session - tutuldu.<br /><br />Window sunucuda hiç bir problem yaşamadım. Projeleri CentOs yani linux sunucuya taşıdığımızda ise bazı hatalar ortaya çıktı.<br /><br />Mesela png basılıyor, hata vermiyor ancak metin otalarda yoktu.<br /><br />Sonradan çözdüm olayı. Png'de metni basarken sans-serif ttf fontunu kullanmışım. Windows'ta zaten vardı. Ancak linux'ta ayrıca yüklenmeliydi. Yüklendi ve sorun ortadan kalktı.<br /><br /><br />Konu: <b>An easy way to install Microsoft's TrueType core fonts on linux</b><br /><br />Bakılması için örnek bir site : http://corefonts.sourceforge.net

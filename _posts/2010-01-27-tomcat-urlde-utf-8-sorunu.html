@@ -1,0 +1,14 @@
+---
+layout: post
+title: Tomcat URL'de UTF-8 sorunu
+date: '2010-01-27T23:12:00.000+02:00'
+author: İbrahim YILDIZ
+tags:
+- url utf-8 sorunu
+- tomcat
+modified_time: '2010-01-27T23:12:44.967+02:00'
+blogger_id: tag:blogger.com,1999:blog-2574404706234424211.post-385249903829056596
+blogger_orig_url: http://yildizib.blogspot.com/2010/01/tomcat-urlde-utf-8-sorunu.html
+---
+
+Tomcatte ayar dosyaları arasında en meşhuru server.xml ayar dosyasında bir iki ekleme ile URLde UTF-8 problemini çözebilirsiniz.<br /><br />JSP dosyalarının başında içeriğin utf-8 tipinde bilgi içerdiğini @page direktifi ile yapabilirsiniz. Ama içeriğiniz yine de düzgün görünmüyorsa bir filtre yazarsınız. Ve filtre her çeğrılan JSP dosyası için response ve request nesnelerinin karekter kodlamasının utf-8 olduğunu söylersiniz. Böyle bu sorununuz çözülür.<br /><br />Diğer yollardan biri ise server.xml'de host tanımına URIencoding="UTF-8" ek tanımını eklemek. Böyle o host ile tanımlanan uygulamalarda otomatik karekter kodlaması UTF-8 olduğunu tomcat anlayacaktır. Bu tanımla ile form post ve get metodlarıyla veya URLden direk gelen bilgilerin UTF-8 olarak JSP içerisine düşeceğinin garantisini vermez.<br /><br />Bunun için server.xml'de connector etiketine de host etiketine eklediğiniz şeyi uygulamanız gerekecektir. Bu sornu çözecektir. Artık utf-8 probleminiz umuyorum kalmayacaktır.<br /><br />Filtrenizi silmeyin ne olur ne olmaz.... :)<br /><br /><b>Tecrübe:&nbsp; </b>CentOS makinada bir dizi proje yapıldı ve bu projeler faaliyete geçirildi. Karekter kodlamasında sıkıntılar gözlendi. Utf-8 filtresi bulunmasına rağmen içerikleri JSP'lerde gösterirken değil ama URLde mesela formdan gelen bilgilerde utf-8 kodlaması sorunlu idi.<br /><br />JSP'ler içerisine bakıldı. @page direktifi ile sayfa karakter kodlamasının utf-8 olduğu gözlendi. Utf-8 filtresine bakıldı. Çalışmasının normal olduğu ve yapması gerektiği gibi response, request nesnelerinin karekter kodlamalarının setEncodin("UTF-8") konutuyla utf-8'e çevrildiği gözlendi.<br /><br />Lakin URLlerde hala sorun devam etmekte idi. Tomcat conf dizini altında server.xml dosyasında HOST etiketine URIEncoding="UTF-8" eklendi. Ancak sorun çözülmedi.<br /><br />Tam hatırlamamakla beraber windows makinada bu kadarıyla sorunlarımız çözülmüştü. Şimdi ise linux kullanıyorduk.<br /><br />Bu sefer HOST etiketine uyguladığım şeyleri CONNECTOR etiketine de uyguladım.<br /><br />Ve sonuç olumlu idi. Artık sorun yok id.<br /><br />:) Ne olur ne olmaz diye Utf-8 filtresini kaldırmadım. Bu filte en azından şöyle bir şeye yardımcı oluyor eğer servletinizde direk birşeyler bastırırsanız karekter kodlaması bilin bakalım ne oluyor filtreniz aktif iken...
