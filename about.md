@@ -4,15 +4,19 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Bilişim esanfı yolunda, yılların yazılım sanayisinde işçi, arayışlar içinde, 
+sadece kod yazmanın anlamsızlığından bunalmış, mantık ve algoritmalar ile eğlenmeye çalışan,
+hızlı emeklilik peşinde...
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Java, Ruby, Ptyhon, Php dilleri ile çalışmış, kiminde çok iyi kiminde iyi (artık ne demekse) ...
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+Engineer demekten sıkılmış enginar demeyi yeğlemiş, veri biliminin bilim olup olmadığını anlamaya 
+çalışan :) ...
+
+Büyük veri ile arada sarsılan, kimi denemeler yapan, vakit oldukça denemeye çalışan (hayata geçmedikçe anlamı neyse) ...
 
 
-[jekyll-organization]: https://github.com/jekyll
+
+[GitHub](https://github.com/yildizib) \ [LinkenIn](https://www.linkedin.com/in/yildizib/)
+
+[Organik Yazılım](http://organikyazilim.com.tr) şirketinde ...
