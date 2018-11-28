@@ -24,6 +24,9 @@ baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://yildizib.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: yildizib
 github_username: yildizib
+#
+#paginate: 3
+#paginate_path: page:num/
 
 disqus:
   shortname: Yorumlar
@@ -34,6 +37,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  #- jekyll-paginate
 #  - jekyll-seo-tag
 
 # Exclude from processing.
