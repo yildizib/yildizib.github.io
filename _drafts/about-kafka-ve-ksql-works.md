@@ -1,7 +1,13 @@
 ---
 layout: post
 title: Kafka ve KSQL hakkında...
-permalink: /about_kafka_and_ksql/
+tags: 
+- Kafka 
+- Kafka SQL 
+- Kafka Stream 
+- Big Data
+author: İbrahim YILDIZ
+description: Apache Kafka ve Kafka SQL hakkında karalamalar...
 ---
 
 ## Apache Kafka 
