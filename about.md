@@ -1,7 +1,6 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: Hakkımda
 ---
 
 Bilişim esanfı yolunda, yılların yazılım sanayisinde işçi, arayışlar içinde, 
