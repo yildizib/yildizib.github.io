@@ -20,8 +20,8 @@ keywords: >- # this means to ignore newlines until "baseurl:"
   Java, Ruby, Php, Python, Data Science, Big Data
 description: >- # this means to ignore newlines until "baseurl:"
   Yazılım ve Veri bilimi hakkında karalamalarım...
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://yildizib.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: yildizib
 github_username: yildizib
 
