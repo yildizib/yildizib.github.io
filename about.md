@@ -15,7 +15,7 @@ Engineer demekten sıkılmış enginar demeyi yeğlemiş, veri biliminin bilim o
 
 Büyük veri ile arada sarsılan, kimi denemeler yapan, vakit oldukça denemeye çalışan (hayata geçmedikçe anlamı neyse) ...
 
-
+$$E=mc^2$$
 
 [GitHub](https://github.com/yildizib) \ [LinkenIn](https://www.linkedin.com/in/yildizib/)
 

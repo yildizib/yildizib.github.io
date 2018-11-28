@@ -8,7 +8,7 @@ permalink: /about_kafka_and_ksql/
 
 ### Giriş
 
-Kafka temelde bir mesaj broker özelliklerini barındıran ama sadece brokerdan fazlası olan, confluent firmasıyla bir streamin platformuna doğru koşan projedir.
+Kafka temelde bir mesaj broker özelliklerini barındıran ama sadece brokerdan fazlası olan, confluent firmasıyla bir streaming platformuna doğru koşan (*koşmadan ziyade artık olmuştur diyebiliriz*) projedir.
 
 Hikayesini her yerde bulabilirsiniz; LinkedIn de iç ihityaçları doğrultusunda, veritabanları ve çok fazla muhtelif kaynaklarda bulunan verileri vardır. Asıl olan ihtiyaçları bu sürekli veri akışını idare edebilecek/yönetebilecek bir çözmüm ihtiyacıdır diyebiliriz. 
 
