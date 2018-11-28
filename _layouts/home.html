@@ -4,7 +4,7 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <h1 class="page-heading">{% if  site.page_heading  %}{{ site.page_heading | strip_html }}{% endif %}</h1>
   
   {{ content }}
 

@@ -27,6 +27,8 @@ github_username: yildizib
 #
 #paginate: 3
 #paginate_path: page:num/
+#
+#page_heading: Yazılar
 
 disqus:
   shortname: Yorumlar
