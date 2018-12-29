@@ -24,7 +24,7 @@ Detaylı ve ingilizce metin '**Confluent**' firmasının kafka ile alaklı kitab
 
 **Aşağıda neden kafka çözümünü ürettiklerini kendileri açıklıyorlar:** 
 
-> ![about_kafka_and_ksql_img_1.png](/images/about_kafka_and_ksql_img_1.png)
+> ![about_kafka_and_ksql_img_1.png](/assets/images/about_kafka_and_ksql_img_1.png)
 
 
 Kafkanın bir streaming platformu olarak; mesaj olaraj verileri alıp gönderme, kaydetme, onları işleme yeteneğine sahiptir. Diyerek devam ediyor kitap.
