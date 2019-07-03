@@ -14,6 +14,4 @@ Bir insan evladı.
 
 ***
 
-[Organik Yazılım](http://organikyazilim.com.tr) |
-[Yupeka](http://yupeka.com.tr) |
 [Data Science Workshop](https://www.meetup.com/Data-Science-Wokshop/)
