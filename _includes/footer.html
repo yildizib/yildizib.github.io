@@ -27,7 +27,7 @@
             {% include icon-github.html username=site.github_username %}
           </li>
           {% endif %}
-		  
+
           {% if site.linkedin_username %}
           <li>
             {% include icon-linkedin.html username=site.linkedin_username %}
@@ -52,3 +52,15 @@
 
   </div>
 </footer>
+<script>
+var config = {
+    startOnLoad:true,
+    theme: 'forest',
+    flowchart:{
+            useMaxWidth:false,
+            htmlLabels:true
+        }
+};
+mermaid.initialize(config);
+window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+</script>
