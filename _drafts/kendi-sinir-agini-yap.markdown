@@ -20,31 +20,31 @@ for i in range(1,10):
 
 * Burada yapılanları [Tariq Rashid][1] web güncesinde bulabilirsiniz.
 $\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$
-$
-    \left[
+
+    $$
+	\left[
     \begin{matrix}
     1 & x & x^2 \\
     1 & y & y^2 \\
     1 & z & z^2 \\
     \end{matrix}
-    \right]$
+    \right]
+	$$
 
 
-    $
-    \begin{cases}
+    $$
+	\begin{cases}
     a_1x+b_1y+c_1z=d_1 \\
     a_2x+b_2y+c_2z=d_2 \\
     a_3x+b_3y+c_3z=d_3
     \end{cases}
-    $
+	$$
 
 
-    $
-    \begin{aligned}
+    $\begin{aligned}
     a=&\left(1+2+3+  \cdots \right.
     & \cdots+ \left. \infty-2+\infty-1+\infty\right)
-    \end{aligned}
-    $
+    \end{aligned}$
 
 
     $$
