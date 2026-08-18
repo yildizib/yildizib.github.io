@@ -1,0 +1,8 @@
+---
+layout: layouts/base.njk
+title: "Arsiv"
+description: "Turkce yazilarin yillara gore arsivi."
+language: tr
+permalink: /tr/archive/index.html
+---
+<section class="archive flow"><p class="eyebrow">Turkce</p><h1>Arsiv</h1>{% for group in collections.posts_tr | yearGroups %}<section><h2>{{ group.year }}</h2><ul class="archive-list">{% for post in group.entries %}<li><time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate('tr') }}</time><a href="{{ post.url }}">{{ post.data.title }}</a></li>{% endfor %}</ul></section>{% endfor %}</section>

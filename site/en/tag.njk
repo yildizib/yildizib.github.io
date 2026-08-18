@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+language: en
+pagination:
+  data: collections.postTags_en
+  size: 1
+  alias: tag
+permalink: /en/tags/{{ tag | slugify }}/index.html
+eleventyComputed:
+  title: "{{ tag }}"
+  description: "English posts tagged {{ tag }}."
+---
+<section class="listing flow"><p class="eyebrow">Tag</p><h1>{{ tag }}</h1>{% for post in collections.posts_en | postsWithTag(tag) %}{% include "partials/post-card.njk" %}{% endfor %}</section>
