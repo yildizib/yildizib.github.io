@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ language | default('en') }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ description or site.description }}">
+    <meta name="color-scheme" content="light dark">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    {% if translation_key %}
+      {% for post in collections.all %}
+        {% if post.data.translation_key == translation_key and post.url != page.url %}
+          <link rel="alternate" hreflang="{{ post.data.language }}" href="{{ site.url }}{{ post.url }}">
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/{{ language | default('en') }}/feed.xml">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
+  </head>
+  <body>
+    {% include "partials/header.njk" %}
+    <main class="shell">{{ content | safe }}</main>
+    {% include "partials/footer.njk" %}
+  </body>
+</html>

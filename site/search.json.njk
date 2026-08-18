@@ -1,0 +1,12 @@
+---
+permalink: /search.json
+eleventyExcludeFromCollections: true
+---
+[
+{% for post in collections.posts_tr %}
+  {"title": {{ post.data.title | json | safe }}, "description": {{ post.data.description | json | safe }}, "url": {{ post.url | json | safe }}, "language": "tr", "tags": {{ post.data.tags | json | safe }}}{% if not loop.last or collections.posts_en.length %},{% endif %}
+{% endfor %}
+{% for post in collections.posts_en %}
+  {"title": {{ post.data.title | json | safe }}, "description": {{ post.data.description | json | safe }}, "url": {{ post.url | json | safe }}, "language": "en", "tags": {{ post.data.tags | json | safe }}}{% if not loop.last %},{% endif %}
+{% endfor %}
+]

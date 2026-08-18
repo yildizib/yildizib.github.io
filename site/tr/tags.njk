@@ -1,0 +1,8 @@
+---
+layout: layouts/base.njk
+title: "Etiketler"
+description: "Turkce yazilardaki etiketler."
+language: tr
+permalink: /tr/tags/index.html
+---
+<section class="flow"><p class="eyebrow">Turkce</p><h1>Etiketler</h1><ul class="tag-cloud">{% for tag in collections.postTags_tr %}<li><a href="/tr/tags/{{ tag | slugify }}/">{{ tag }}</a></li>{% endfor %}</ul></section>

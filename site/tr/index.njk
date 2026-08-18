@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+title: "Yazilar"
+description: "Yazilim, sistemler ve ogrenme notlari."
+language: tr
+permalink: /tr/index.html
+---
+<section class="listing flow">
+  <header><p class="eyebrow">Turkce</p><h1>Yazilar</h1><p class="lede">Yazilim, sistemler ve ogrenme uzerine notlar.</p></header>
+  {% for post in collections.posts_tr %}{% include "partials/post-card.njk" %}{% endfor %}
+</section>

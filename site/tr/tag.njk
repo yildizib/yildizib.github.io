@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+language: tr
+pagination:
+  data: collections.postTags_tr
+  size: 1
+  alias: tag
+permalink: /tr/tags/{{ tag | slugify }}/index.html
+eleventyComputed:
+  title: "{{ tag }}"
+  description: "{{ tag }} etiketli Turkce yazilar."
+---
+<section class="listing flow"><p class="eyebrow">Etiket</p><h1>{{ tag }}</h1>{% for post in collections.posts_tr | postsWithTag(tag) %}{% include "partials/post-card.njk" %}{% endfor %}</section>

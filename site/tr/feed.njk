@@ -1,0 +1,6 @@
+---
+permalink: /tr/feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>{{ site.title }} - Turkce</title><id>{{ site.url }}/tr/</id><link href="{{ site.url }}/tr/feed.xml" rel="self"/>{% for post in collections.posts_tr %}<entry><title>{{ post.data.title }}</title><id>{{ site.url }}{{ post.url }}</id><link href="{{ site.url }}{{ post.url }}"/><updated>{{ post.date | dateToRfc3339 }}</updated><summary>{{ post.data.description }}</summary></entry>{% endfor %}</feed>

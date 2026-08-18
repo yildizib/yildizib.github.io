@@ -1,0 +1,43 @@
+name: Publish approved content
+
+on:
+  workflow_dispatch:
+    inputs:
+      generated_path:
+        description: Approved Markdown path under generated/
+        required: true
+        type: string
+      confirmation:
+        description: Type PUBLISH to confirm the external publication
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-${{ inputs.generated_path }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    environment: content-publishing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check confirmation
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+        run: test "$CONFIRMATION" = "PUBLISH"
+      - name: Check out approved content
+        uses: actions/checkout@v4
+        with:
+          ref: master
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Publish external content
+        env:
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+          X_USER_ACCESS_TOKEN: ${{ secrets.X_USER_ACCESS_TOKEN }}
+        run: node scripts/publish-content.mjs --file "${{ inputs.generated_path }}"

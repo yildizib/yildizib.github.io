@@ -1,0 +1,8 @@
+---
+layout: layouts/base.njk
+title: "Archive"
+description: "English posts by year."
+language: en
+permalink: /en/archive/index.html
+---
+<section class="archive flow"><p class="eyebrow">English</p><h1>Archive</h1>{% for group in collections.posts_en | yearGroups %}<section><h2>{{ group.year }}</h2><ul class="archive-list">{% for post in group.entries %}<li><time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate('en') }}</time><a href="{{ post.url }}">{{ post.data.title }}</a></li>{% endfor %}</ul></section>{% endfor %}</section>

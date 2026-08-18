@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+---
+<article class="post flow">
+  <header class="post-header">
+    <p class="eyebrow">{{ date | readableDate(language) }}</p>
+    <h1>{{ title }}</h1>
+    <p class="lede">{{ description }}</p>
+    {% if tags %}
+      <ul class="tag-list" aria-label="Tags">
+        {% for tag in tags %}
+          {% if tag != "posts" %}<li><a href="/{{ language }}/tags/{{ tag | slugify }}/">{{ tag }}</a></li>{% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </header>
+
+  <div class="post-body">{{ content | safe }}</div>
+
+  {% if references %}
+    <footer class="references">
+      <h2>{{ "Internal references" if language == "en" else "Icerik referanslari" }}</h2>
+      <ul>
+        {% for reference in references %}
+          <li><code>{{ reference.path }}</code>{% if reference.role %} <span>{{ reference.role }}</span>{% endif %}</li>
+        {% endfor %}
+      </ul>
+    </footer>
+  {% endif %}
+</article>

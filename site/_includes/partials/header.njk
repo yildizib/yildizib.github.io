@@ -1,0 +1,19 @@
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="wordmark" href="/">iy</a>
+    <nav aria-label="Primary navigation">
+      {% set currentLanguage = language | default('en') %}
+      <a href="/{{ currentLanguage }}/">{{ "Notes" if currentLanguage == "en" else "Yazilar" }}</a>
+      <a href="/{{ currentLanguage }}/archive/">{{ "Archive" if currentLanguage == "en" else "Arsiv" }}</a>
+      <a href="/{{ currentLanguage }}/tags/">{{ "Tags" if currentLanguage == "en" else "Etiketler" }}</a>
+      <a href="/{{ currentLanguage }}/search/">{{ "Search" if currentLanguage == "en" else "Ara" }}</a>
+    </nav>
+    <div class="language-switch" aria-label="Language">
+      {% if currentLanguage == "tr" %}
+        <a href="/en/">EN</a><span aria-hidden="true">/</span><strong>TR</strong>
+      {% else %}
+        <strong>EN</strong><span aria-hidden="true">/</span><a href="/tr/">TR</a>
+      {% endif %}
+    </div>
+  </div>
+</header>
