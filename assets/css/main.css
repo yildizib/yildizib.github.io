@@ -23,7 +23,8 @@ a:hover { color: var(--accent); }
 .flow > * + * { margin-top: 1.4rem; }
 .site-header { border-bottom: 1px solid var(--line); }
 .header-inner { min-height: 4.8rem; display: flex; align-items: center; gap: 1rem; }
-.wordmark { color: var(--paper); background: var(--ink); border-radius: 50%; display: grid; height: 2.35rem; width: 2.35rem; place-items: center; font-family: var(--serif); font-size: 1.1rem; font-weight: bold; text-decoration: none; }
+.profile-avatar { border: 1px solid var(--line); border-radius: 50%; display: block; flex: 0 0 auto; height: 2.45rem; overflow: hidden; width: 2.45rem; }
+.profile-avatar img { display: block; height: 100%; object-fit: cover; width: 100%; }
 nav { display: flex; flex-wrap: wrap; gap: .85rem; font-size: .86rem; }
 nav a { text-decoration: none; }
 .language-switch { margin-left: auto; color: var(--muted); font-size: .78rem; }
@@ -57,10 +58,18 @@ p, li { line-height: 1.7; }
 .post-body h2, .post-body h3 { margin-top: 2.5rem; }
 .post-body pre { background: var(--ink); color: var(--paper); overflow-x: auto; padding: 1.2rem; }
 .post-body code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .85em; }
+.about-identity { align-items: center; display: flex; gap: 1.1rem; }
+.about-identity img { border: 1px solid var(--line); border-radius: 50%; height: 5.25rem; object-fit: cover; width: 5.25rem; }
+.about-identity h1 { font-size: clamp(2.1rem, 7vw, 3.6rem); max-width: none; }
+.about-identity p { color: var(--muted); font-size: 1rem; line-height: 1.45; margin-top: .35rem; }
+.about-links { border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2.25rem; padding-top: 1.25rem; font-family: var(--sans); font-size: .9rem; }
+.post-body .mermaid { background: var(--card); border: 1px solid var(--line); margin-block: 1.8rem; overflow-x: auto; padding: 1rem; text-align: center; }
+.post-body .mermaid svg { max-width: 100%; }
+.post-body .katex-display { overflow-x: auto; overflow-y: hidden; padding-block: .2rem; }
 .references { border-top: 1px solid var(--line); margin-top: 3.5rem; padding-top: 1.5rem; }
 .references h2 { font-size: 1.25rem; }.references ul { padding-left: 1.2rem; }.references span { color: var(--muted); font-size: .85rem; }
 .archive section + section { margin-top: 2.4rem; }.archive-list { list-style: none; margin: 1rem 0; padding: 0; }.archive-list li { align-items: baseline; border-top: 1px solid var(--line); display: flex; gap: 1.5rem; padding: .75rem 0; }.archive-list time { color: var(--muted); flex: 0 0 9rem; font-size: .85rem; }
 .tag-cloud { margin-top: 1.5rem; }.tag-cloud a { font-size: 1rem; padding: .45rem .75rem; }
 .search-page label { display: block; margin-top: 2rem; }.search-page input { background: var(--card); border: 1px solid var(--line); border-radius: 0; color: var(--ink); font: inherit; margin-top: .55rem; padding: .8rem; width: 100%; }.search-page input:focus { outline: 2px solid var(--accent); outline-offset: 2px; }.search-results { margin-top: 1.5rem; }.search-result { border-top: 1px solid var(--line); padding: 1rem 0; }.search-result p { color: var(--muted); margin-top: .3rem; }
 .site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }.footer-inner { display: flex; justify-content: space-between; padding-block: 1.5rem; }
-@media (max-width: 620px) { .shell { width: min(100% - 1.5rem, 760px); }.header-inner { min-height: auto; padding-block: .9rem; }.header-inner nav { order: 3; width: 100%; }.language-cards { grid-template-columns: 1fr; }.archive-list li { display: grid; gap: .15rem; }.archive-list time { flex: auto; } main { padding-block: 3.5rem; } }
+@media (max-width: 620px) { .shell { width: min(100% - 1.5rem, 760px); }.header-inner { min-height: auto; padding-block: .9rem; }.header-inner nav { order: 3; width: 100%; }.language-cards { grid-template-columns: 1fr; }.archive-list li { display: grid; gap: .15rem; }.archive-list time { flex: auto; } .about-identity { align-items: flex-start; }.about-identity img { height: 4rem; width: 4rem; } main { padding-block: 3.5rem; } }
