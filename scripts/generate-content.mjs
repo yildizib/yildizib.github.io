@@ -46,7 +46,7 @@ let output;
 if (["devto", "medium"].includes(args.platform) && args.format === "full") {
   output = `---\ntitle: "${title.replaceAll('"', '\\"')}"\nplatform: ${args.platform}\nformat: full\nlanguage: ${sourceLanguage}\nstatus: draft\ncanonical_url: "${canonicalUrl}"\n${references}\ncontent_hash: "sha256:${createHash("sha256").update(sourceBody).digest("hex")}"\n${generation}\n---\n${sourceBody}`;
 } else {
-  if (!process.env.OPENAI_API_KEY) throw new Error("OPENAI_API_KEY is required for social drafts");
+  if (!process.env.OLLAMA_API_KEY) throw new Error("OLLAMA_API_KEY is required for social drafts");
   const files = [
     ".agents/blog/rules/content-integrity.md",
     ".agents/blog/rules/editorial-voice.md",
@@ -57,9 +57,12 @@ if (["devto", "medium"].includes(args.platform) && args.format === "full") {
     `.agents/platforms/${args.platform}/${args.format}.md`
   ];
   const instructions = await Promise.all(files.map(async (file) => `## ${file}\n${await readFile(path.join(root, file), "utf8")}`));
-  const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  const client = new OpenAI({
+    apiKey: process.env.OLLAMA_API_KEY,
+    baseURL: process.env.OLLAMA_BASE_URL || "https://api.ollama.com/v1/"
+  });
   const response = await client.responses.create({
-    model: process.env.OPENAI_MODEL || "gpt-4.1-mini",
+    model: process.env.OLLAMA_MODEL || "gpt-oss:120b",
     input: `${instructions.join("\n\n")}\n\n## Generation context\nTarget language: ${args.language}\nSource path: ${sourcePath}\nSource language: ${sourceLanguage}\nSource commit: ${sourceCommit}\n\n## Source Markdown\n${source}`
   });
   output = response.output_text.trim();
