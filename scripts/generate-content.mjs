@@ -59,7 +59,7 @@ if (["devto", "medium"].includes(args.platform) && args.format === "full") {
   const instructions = await Promise.all(files.map(async (file) => `## ${file}\n${await readFile(path.join(root, file), "utf8")}`));
   const client = new OpenAI({
     apiKey: process.env.OLLAMA_API_KEY,
-    baseURL: process.env.OLLAMA_BASE_URL || "https://api.ollama.com/v1/"
+    baseURL: process.env.OLLAMA_BASE_URL || "https://ollama.com/v1/"
   });
   const response = await client.responses.create({
     model: process.env.OLLAMA_MODEL || "gpt-oss:120b-cloud",
