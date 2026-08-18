@@ -62,7 +62,7 @@ if (["devto", "medium"].includes(args.platform) && args.format === "full") {
     baseURL: process.env.OLLAMA_BASE_URL || "https://api.ollama.com/v1/"
   });
   const response = await client.responses.create({
-    model: process.env.OLLAMA_MODEL || "gpt-oss:120b",
+    model: process.env.OLLAMA_MODEL || "gpt-oss:20b-cloud",
     input: `${instructions.join("\n\n")}\n\n## Generation context\nTarget language: ${args.language}\nSource path: ${sourcePath}\nSource language: ${sourceLanguage}\nSource commit: ${sourceCommit}\n\n## Source Markdown\n${source}`
   });
   output = response.output_text.trim();
