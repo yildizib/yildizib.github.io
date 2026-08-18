@@ -23,9 +23,9 @@ on:
         type: choice
         options: [tr, en]
       model:
-        description: OpenAI model for LinkedIn and X drafts
+        description: Ollama Cloud model for LinkedIn and X drafts
         required: false
-        default: gpt-4.1-mini
+        default: gpt-oss:120b-cloud
         type: string
 
 permissions:
@@ -60,8 +60,9 @@ jobs:
       - name: Generate draft package
         id: generate
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ inputs.model }}
+          OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
+          OLLAMA_MODEL: ${{ inputs.model }}
+          OLLAMA_BASE_URL: https://api.ollama.com/v1/
           SITE_URL: https://yildizib.github.io
         run: |
           SOURCE_COMMIT="$(git rev-parse HEAD)"
