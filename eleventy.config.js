@@ -1,4 +1,6 @@
 import pluginRss from "@11ty/eleventy-plugin-rss";
+import markdownIt from "markdown-it";
+import markdownItKatex from "@traptitech/markdown-it-katex";
 
 const postFiles = "./posts/**/*.md";
 const ignoredTags = new Set(["all", "posts"]);
@@ -16,6 +18,7 @@ function tagsFor(posts) {
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.setLibrary("md", markdownIt({ html: true }).use(markdownItKatex));
   eleventyConfig.addPassthroughCopy({ assets: "assets" });
   eleventyConfig.ignores.add("./node_modules/**");
   eleventyConfig.ignores.add("./_site/**");
