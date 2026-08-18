@@ -4,7 +4,7 @@ export default {
   url: "https://yildizib.github.io",
   author: "Ibrahim Yildiz",
   links: {
-    avatar: "https://github.com/yildizib.png?size=192",
+    avatar: "/assets/images/ibrahim-yildiz.jpg",
     github: "https://github.com/yildizib",
     linkedin: "https://linkedin.com/in/yildizib",
     portfolio: "https://ibrahimyildiz.tech"
