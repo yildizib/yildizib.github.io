@@ -29,6 +29,7 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add("./scripts/**");
   eleventyConfig.ignores.add("./README.md");
   eleventyConfig.ignores.add("./AGENTS.md");
+  eleventyConfig.ignores.add("./LICENSE.md");
 
   eleventyConfig.addCollection("posts_tr", (collectionApi) => postsForLanguage(collectionApi, "tr"));
   eleventyConfig.addCollection("posts_en", (collectionApi) => postsForLanguage(collectionApi, "en"));
