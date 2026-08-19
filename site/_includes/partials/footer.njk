@@ -1,6 +1,11 @@
 <footer class="site-footer">
   <div class="shell footer-inner">
-    <p>Written and maintained by {{ site.author }}.</p>
+    <div class="footer-copy">
+      <p>Written and maintained by {{ site.author }}.</p>
+      <a class="license-link" href="{{ site.license.url }}" rel="license" aria-label="Content licensed under {{ site.license.name }}" title="{{ site.license.name }}">
+        <img src="{{ site.license.badge }}" alt="{{ site.license.name }}">
+      </a>
+    </div>
     <a href="/{{ language | default('en') }}/feed.xml">RSS</a>
   </div>
 </footer>
