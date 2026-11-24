@@ -1,18 +1,45 @@
 <!doctype html>
 <html lang="{{ language | default('en') }}">
   <head>
+    {% set seoDescription = description or site.description %}
+    {% set canonicalUrl = site.url + page.url %}
+    {% set socialImageUrl = site.url + site.links.avatar %}
+    {% if page.url == "/" %}
+      {% set seoTitle = site.title %}
+    {% else %}
+      {% set seoTitle = title + " | " + site.title %}
+    {% endif %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ description or site.description }}">
+    <meta name="description" content="{{ seoDescription }}">
+    <meta name="author" content="{{ site.author }}">
+    <meta name="robots" content="{{ 'noindex,nofollow' if status == 'draft' else (robots or 'index,follow') }}">
     <meta name="color-scheme" content="light dark">
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f4ee">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#18201c">
+    <link rel="canonical" href="{{ canonicalUrl }}">
+    <link rel="icon" href="{{ site.links.avatar }}" type="image/jpeg">
     {% if translation_key %}
       {% for post in collections.all %}
         {% if post.data.translation_key == translation_key and post.url != page.url %}
           <link rel="alternate" hreflang="{{ post.data.language }}" href="{{ site.url }}{{ post.url }}">
+          <meta property="og:locale:alternate" content="{{ 'tr_TR' if post.data.language == 'tr' else 'en_US' }}">
         {% endif %}
       {% endfor %}
+      <link rel="alternate" hreflang="x-default" href="{{ site.url }}/">
     {% endif %}
+    <meta property="og:type" content="{{ ogType or 'website' }}">
+    <meta property="og:title" content="{{ seoTitle }}">
+    <meta property="og:description" content="{{ seoDescription }}">
+    <meta property="og:url" content="{{ canonicalUrl }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:locale" content="{{ 'tr_TR' if language == 'tr' else 'en_US' }}">
+    <meta property="og:image" content="{{ socialImageUrl }}">
+    <meta property="og:image:alt" content="Ibrahim Yildiz">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ seoTitle }}">
+    <meta name="twitter:description" content="{{ seoDescription }}">
+    <meta name="twitter:image" content="{{ socialImageUrl }}">
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/{{ language | default('en') }}/feed.xml">
     <link rel="stylesheet" href="/assets/css/main.css">
     {% if math %}<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">{% endif %}
@@ -21,7 +48,62 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap">
     {% endif %}
-    <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
+    {% if profilePage %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          "@id": {{ (canonicalUrl + "#profile") | json | safe }},
+          "url": {{ canonicalUrl | json | safe }},
+          "inLanguage": {{ language | json | safe }},
+          "mainEntity": {
+            "@type": "Person",
+            "@id": {{ (site.url + "/#person") | json | safe }},
+            "name": {{ site.author | json | safe }},
+            "url": {{ (site.url + "/en/about/") | json | safe }},
+            "image": {{ socialImageUrl | json | safe }},
+            "jobTitle": "Principal Architect and Enterprise Java Consultant",
+            "sameAs": [
+              {{ site.links.github | json | safe }},
+              {{ site.links.linkedin | json | safe }}
+            ]
+          }
+        }
+      </script>
+    {% elif ogType == "article" %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "@id": {{ (canonicalUrl + "#article") | json | safe }},
+          "mainEntityOfPage": {{ canonicalUrl | json | safe }},
+          "headline": {{ title | json | safe }},
+          "description": {{ seoDescription | json | safe }},
+          "datePublished": {{ (date | isoDate) | json | safe }},
+          "inLanguage": {{ language | json | safe }},
+          "image": {{ socialImageUrl | json | safe }},
+          "author": {
+            "@type": "Person",
+            "@id": {{ (site.url + "/#person") | json | safe }},
+            "name": {{ site.author | json | safe }},
+            "url": {{ (site.url + "/en/about/") | json | safe }}
+          }
+        }
+      </script>
+    {% elif page.url == "/" %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": {{ (site.url + "/#website") | json | safe }},
+          "name": {{ site.title | json | safe }},
+          "url": {{ site.url | json | safe }},
+          "description": {{ site.description | json | safe }},
+          "inLanguage": ["en", "tr"]
+        }
+      </script>
+    {% endif %}
+    <title>{{ seoTitle }}</title>
   </head>
   <body>
     {% include "partials/header.njk" %}

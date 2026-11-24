@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+title: "Tüm Yazılar"
+description: "Yazılım, sistemler ve öğrenme üzerine tüm Türkçe yazılar."
+language: tr
+translation_key: all-posts
+permalink: /tr/yazilar/index.html
+---
+<section class="listing flow" data-progressive-list data-page-size="10">
+  <header>
+    <p class="eyebrow">Türkçe</p>
+    <h1>Tüm Yazılar</h1>
+    <p class="lede">En yeniden eskiye yayımlanan tüm Türkçe yazılar.</p>
+  </header>
+  {% if collections.posts_tr.length %}
+    {% set progressiveList = true %}
+    {% for post in collections.posts_tr %}{% include "partials/post-card.njk" %}{% endfor %}
+    <button class="load-more" type="button" data-load-more hidden>Daha fazla göster</button>
+  {% else %}
+    <p class="empty-state">Yeni yazılar burada yer alacak.</p>
+  {% endif %}
+</section>
+<script src="/assets/js/progressive-list.js" defer></script>

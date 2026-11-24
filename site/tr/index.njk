@@ -1,11 +1,17 @@
 ---
 layout: layouts/base.njk
-title: "Yazilar"
-description: "Yazilim, sistemler ve ogrenme notlari."
+title: "Yazılar"
+description: "Yazılım, sistemler ve öğrenme notları."
 language: tr
+translation_key: notes-home
 permalink: /tr/index.html
 ---
 <section class="listing flow">
-  <header><p class="eyebrow">Turkce</p><h1>Yazilar</h1><p class="lede">Yazilim, sistemler ve ogrenme uzerine notlar.</p></header>
-  {% for post in collections.posts_tr %}{% include "partials/post-card.njk" %}{% endfor %}
+  <header><p class="eyebrow">Türkçe</p><h1>Yazılar</h1><p class="lede">Yazılım, sistemler ve öğrenme üzerine notlar.</p></header>
+  {% if collections.latestPosts_tr.length %}
+    {% for post in collections.latestPosts_tr %}{% include "partials/post-card.njk" %}{% endfor %}
+    <p class="archive-link"><a href="/tr/yazilar/">Devamı</a></p>
+  {% else %}
+    <p class="empty-state">Yeni yazılar burada yer alacak.</p>
+  {% endif %}
 </section>

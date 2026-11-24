@@ -1,7 +1,7 @@
 export default {
   title: "Ibrahim Yildiz",
   description: "Notes on software, systems, and things worth understanding.",
-  url: "https://yildizib.github.io",
+  url: "https://ibrahimyildiz.dev",
   author: "Ibrahim Yildiz",
   license: {
     name: "CC BY-NC-SA 4.0",
@@ -11,11 +11,10 @@ export default {
   links: {
     avatar: "/assets/images/ibrahim-yildiz.jpg",
     github: "https://github.com/yildizib",
-    linkedin: "https://linkedin.com/in/yildizib",
-    portfolio: "https://ibrahimyildiz.dev"
+    linkedin: "https://linkedin.com/in/yildizib"
   },
   languages: {
-    tr: { label: "Turkce", home: "/tr/" },
+    tr: { label: "Türkçe", home: "/tr/" },
     en: { label: "English", home: "/en/" }
   }
 };

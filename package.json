@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/clean-site.mjs && eleventy",
-    "serve": "eleventy --serve",
+    "serve": "BLOG_INCLUDE_DRAFTS=true eleventy --serve",
     "check": "npm run build"
   },
   "devDependencies": {

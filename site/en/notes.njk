@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+title: "All Notes"
+description: "All English notes on software, systems, and learning."
+language: en
+translation_key: all-posts
+permalink: /en/notes/index.html
+---
+<section class="listing flow" data-progressive-list data-page-size="10">
+  <header>
+    <p class="eyebrow">English</p>
+    <h1>All Notes</h1>
+    <p class="lede">All English notes, ordered from newest to oldest.</p>
+  </header>
+  {% if collections.posts_en.length %}
+    {% set progressiveList = true %}
+    {% for post in collections.posts_en %}{% include "partials/post-card.njk" %}{% endfor %}
+    <button class="load-more" type="button" data-load-more hidden>Show more</button>
+  {% else %}
+    <p class="empty-state">New notes will appear here.</p>
+  {% endif %}
+</section>
+<script src="/assets/js/progressive-list.js" defer></script>
