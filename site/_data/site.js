@@ -12,7 +12,7 @@ export default {
     avatar: "/assets/images/ibrahim-yildiz.jpg",
     github: "https://github.com/yildizib",
     linkedin: "https://linkedin.com/in/yildizib",
-    portfolio: "https://ibrahimyildiz.tech"
+    portfolio: "https://ibrahimyildiz.dev"
   },
   languages: {
     tr: { label: "Turkce", home: "/tr/" },
