@@ -8,6 +8,13 @@ pagination:
 permalink: /tr/tags/{{ tag | slugify }}/index.html
 eleventyComputed:
   title: "{{ tag }}"
-  description: "{{ tag }} etiketli Turkce yazilar."
+  description: "{{ tag }} etiketli Türkçe yazılar."
 ---
-<section class="listing flow"><p class="eyebrow">Etiket</p><h1>{{ tag }}</h1>{% for post in collections.posts_tr | postsWithTag(tag) %}{% include "partials/post-card.njk" %}{% endfor %}</section>
+<section class="listing flow" data-progressive-list data-page-size="10">
+  <p class="eyebrow">Etiket</p>
+  <h1>{{ tag }}</h1>
+  {% set progressiveList = true %}
+  {% for post in collections.posts_tr | postsWithTag(tag) %}{% include "partials/post-card.njk" %}{% endfor %}
+  <button class="load-more" type="button" data-load-more hidden>Daha fazla göster</button>
+</section>
+<script src="/assets/js/progressive-list.js" defer></script>

@@ -10,4 +10,11 @@ eleventyComputed:
   title: "{{ tag }}"
   description: "English posts tagged {{ tag }}."
 ---
-<section class="listing flow"><p class="eyebrow">Tag</p><h1>{{ tag }}</h1>{% for post in collections.posts_en | postsWithTag(tag) %}{% include "partials/post-card.njk" %}{% endfor %}</section>
+<section class="listing flow" data-progressive-list data-page-size="10">
+  <p class="eyebrow">Tag</p>
+  <h1>{{ tag }}</h1>
+  {% set progressiveList = true %}
+  {% for post in collections.posts_en | postsWithTag(tag) %}{% include "partials/post-card.njk" %}{% endfor %}
+  <button class="load-more" type="button" data-load-more hidden>Show more</button>
+</section>
+<script src="/assets/js/progressive-list.js" defer></script>

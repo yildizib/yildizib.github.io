@@ -5,4 +5,4 @@ description: "Tags used in English posts."
 language: en
 permalink: /en/tags/index.html
 ---
-<section class="flow"><p class="eyebrow">English</p><h1>Tags</h1><ul class="tag-cloud">{% for tag in collections.postTags_en %}<li><a href="/en/tags/{{ tag | slugify }}/">{{ tag }}</a></li>{% endfor %}</ul></section>
+<section class="flow"><p class="eyebrow">English</p><h1>Tags</h1>{% if collections.postTags_en.length %}<ul class="tag-cloud">{% for tag in collections.postTags_en %}<li><a href="/en/tags/{{ tag | slugify }}/">{{ tag }}</a></li>{% endfor %}</ul>{% else %}<p class="empty-state">Tags will appear when notes are published.</p>{% endif %}</section>

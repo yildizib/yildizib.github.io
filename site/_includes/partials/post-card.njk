@@ -1,10 +1,11 @@
-<article class="post-card">
-  <p class="eyebrow">{{ post.date | readableDate(post.data.language) }}</p>
+<article class="post-card"{% if progressiveList %} data-progressive-item{% endif %}>
+  <p class="eyebrow">{{ post.date | readableDate(post.data.language) }}{% if post.data.status == "draft" %} · {{ "Draft" if post.data.language == "en" else "Taslak" }}{% endif %}</p>
   <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
   <p>{{ post.data.description }}</p>
   <ul class="tag-list" aria-label="Tags">
-    {% for tag in post.data.tags %}
-      {% if tag != "posts" %}<li><a href="/{{ post.data.language }}/tags/{{ tag | slugify }}/">{{ tag }}</a></li>{% endif %}
+    {% for postTag in post.data.tags %}
+      {% if postTag != "posts" %}<li><a href="/{{ post.data.language }}/tags/{{ postTag | slugify }}/">{{ postTag }}</a></li>{% endif %}
     {% endfor %}
   </ul>
+  <p class="read-more"><a href="{{ post.url }}">{{ "Read more" if post.data.language == "en" else "Devamını oku" }}</a></p>
 </article>

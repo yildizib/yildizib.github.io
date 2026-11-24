@@ -1,20 +1,22 @@
 <header class="site-header">
   <div class="shell header-inner">
-    <a class="profile-avatar" href="/" aria-label="Ibrahim Yildiz home"><img src="{{ site.links.avatar }}" alt="Ibrahim Yildiz"></a>
-    <nav aria-label="Primary navigation">
-      {% set currentLanguage = language | default('en') %}
-      {% set isAboutPage = page.url == "/tr/about/" or page.url == "/en/about/" %}
-      <a href="/{{ currentLanguage }}/">{{ "Notes" if currentLanguage == "en" else "Yazilar" }}</a>
-      <a href="/{{ currentLanguage }}/archive/">{{ "Archive" if currentLanguage == "en" else "Arsiv" }}</a>
+    {% set currentLanguage = language | default('en') %}
+    {% set isAboutPage = page.url == "/tr/about/" or page.url == "/en/about/" %}
+    {% set isAllPostsPage = page.url == "/tr/yazilar/" or page.url == "/en/notes/" %}
+    {% set translatedPost = collections.translatedPosts | translationFor(translation_key, currentLanguage) %}
+    <a class="profile-avatar" href="/" aria-label="{{ 'Ibrahim Yildiz home' if currentLanguage == 'en' else 'Ibrahim Yildiz ana sayfa' }}"><img src="{{ site.links.avatar }}" alt="Ibrahim Yildiz"></a>
+    <nav aria-label="{{ 'Primary navigation' if currentLanguage == 'en' else 'Ana navigasyon' }}">
+      <a href="{{ '/en/notes/' if currentLanguage == 'en' else '/tr/yazilar/' }}">{{ "Notes" if currentLanguage == "en" else "Yazılar" }}</a>
+      <a href="/{{ currentLanguage }}/archive/">{{ "Archive" if currentLanguage == "en" else "Arşiv" }}</a>
       <a href="/{{ currentLanguage }}/tags/">{{ "Tags" if currentLanguage == "en" else "Etiketler" }}</a>
       <a href="/{{ currentLanguage }}/search/">{{ "Search" if currentLanguage == "en" else "Ara" }}</a>
-      <a href="/{{ currentLanguage }}/about/">{{ "About" if currentLanguage == "en" else "Hakkimda" }}</a>
+      <a href="/{{ currentLanguage }}/about/">{{ "About" if currentLanguage == "en" else "Hakkımda" }}</a>
     </nav>
-    <div class="language-switch" aria-label="Language">
+    <div class="language-switch" aria-label="{{ 'Language' if currentLanguage == 'en' else 'Dil' }}">
       {% if currentLanguage == "tr" %}
-        <a href="{{ "/en/about/" if isAboutPage else "/en/" }}">EN</a><span aria-hidden="true">/</span><strong>TR</strong>
+        <a href="{{ translatedPost.url if translatedPost else ("/en/about/" if isAboutPage else ("/en/notes/" if isAllPostsPage else "/en/")) }}">EN</a><span aria-hidden="true">/</span><strong>TR</strong>
       {% else %}
-        <strong>EN</strong><span aria-hidden="true">/</span><a href="{{ "/tr/about/" if isAboutPage else "/tr/" }}">TR</a>
+        <strong>EN</strong><span aria-hidden="true">/</span><a href="{{ translatedPost.url if translatedPost else ("/tr/about/" if isAboutPage else ("/tr/yazilar/" if isAllPostsPage else "/tr/")) }}">TR</a>
       {% endif %}
     </div>
   </div>

@@ -3,9 +3,15 @@ layout: layouts/base.njk
 title: "Notes"
 description: "Notes on software, systems, and learning."
 language: en
+translation_key: notes-home
 permalink: /en/index.html
 ---
 <section class="listing flow">
   <header><p class="eyebrow">English</p><h1>Notes</h1><p class="lede">Notes on software, systems, and learning.</p></header>
-  {% for post in collections.posts_en %}{% include "partials/post-card.njk" %}{% endfor %}
+  {% if collections.latestPosts_en.length %}
+    {% for post in collections.latestPosts_en %}{% include "partials/post-card.njk" %}{% endfor %}
+    <p class="archive-link"><a href="/en/notes/">More notes</a></p>
+  {% else %}
+    <p class="empty-state">New notes will appear here.</p>
+  {% endif %}
 </section>

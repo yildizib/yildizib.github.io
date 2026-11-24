@@ -32,7 +32,7 @@ generated/
   medium/en/2026/08/post-slug-full.md
 ```
 
-Each primary post must include `title`, `slug`, `date`, `language`, `description`, and `tags`. Translations share a `translation_key`; unrelated posts do not use one.
+Each primary post must include `title`, `slug`, `date`, `language`, `description`, `tags`, and a `status` of either `draft` or `published`. Translations share a `translation_key`; unrelated posts do not use one.
 
 ```md
 ---
@@ -43,9 +43,12 @@ language: en
 translation_key: "thinking-with-sources"
 description: "Keeping the origin of a note intact while making it useful again."
 tags: ["notes", "writing", "systems"]
+status: published
 permalink: /en/thinking-with-sources/
 ---
 ```
+
+`npm run serve` includes draft posts for local review. The production build includes only posts with `status: published`.
 
 ## Local Development
 
